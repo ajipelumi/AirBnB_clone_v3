@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ API design for AirBnB. """
-from flask import Flask
+from flask import Flask, make_response
 from models import storage
 from api.v1.views import app_views
 import os
@@ -19,6 +19,13 @@ app.register_blueprint(app_views)
 def teardown_method(exception):
     """ Tears down any resource open after request cycle. """
     storage.close()
+
+
+# Handle errors
+@app.errorhandler(404)
+def not_found_method(error):
+    """ Returns JSON-formatted 404 status code response. """
+    return make_response({"error": "Not found"}, 404)
 
 
 # Start flask server with declared host and port
