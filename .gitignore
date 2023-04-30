@@ -1,0 +1,13 @@
+# Ignore pycache files
+tests/__pycache__/
+models/__pycache__/
+*.pyc
+
+# Ignore json files
+*.json
+
+# Ignore swp files
+*.swp
+
+# Ignore main files
+*main.py
