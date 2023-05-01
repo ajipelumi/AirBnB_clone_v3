@@ -21,7 +21,7 @@ def teardown_method(exception):
     storage.close()
 
 
-# Handle errors
+# Handle error 404
 @app.errorhandler(404)
 def not_found_method(error):
     """ Returns JSON-formatted 404 status code response. """
