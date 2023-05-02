@@ -90,5 +90,5 @@ class DBStorage:
         the count of all objects in storage.
         """
         if cls is not None:
-           return len(self.all(cls))
+            return len(self.all(cls))
         return len(self.all())
