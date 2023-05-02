@@ -3,11 +3,15 @@
 from flask import Flask, make_response
 from models import storage
 from api.v1.views import app_views
+from flask_cors import CORS
 import os
 
 
 # Create a Flask instance
 app = Flask(__name__)
+
+# Create cors instance
+cors = CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
 
 
 # Register Blueprint app_views
