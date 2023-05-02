@@ -55,7 +55,6 @@ def update_state(state_id):
     return jsonify(obj.to_dict()), 200
 
 
-
 @app_views.route('/states/<state_id>', methods=['DELETE'])
 def delete_state(state_id):
     """ Delete a state object. """
