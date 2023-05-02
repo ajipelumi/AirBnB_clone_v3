@@ -6,13 +6,11 @@ from models.state import State
 from flask import jsonify, abort, request
 
 
-all_objs = storage.all(State)
-
-
 @app_views.route('/states', methods=['GET'], strict_slashes=False)
 def get_states():
     """ Retrieves the list of all State objects. """
     states = []
+    all_objs = storage.all(State)
     for obj in all_objs.values():
         states.append(obj.to_dict())
     return jsonify(states)
@@ -55,6 +53,7 @@ def update_state(state_id):
             setattr(obj, key, value)
     storage.save()
     return jsonify(obj.to_dict()), 200
+
 
 
 @app_views.route('/states/<state_id>', methods=['DELETE'])
